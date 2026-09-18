@@ -31,7 +31,7 @@ public class UserController{
 	public ResponseEntity<LoginResponseDto> logIn( @Valid @RequestBody LoginRequestDto loginRequestDto){
 
 		LoginResponseDto dto = userService.logIn(loginRequestDto);
-		if(dto.getEmail().equals("null")){
+		if(dto.getJwtToken().equals("null")){
 			return new ResponseEntity<>(dto, HttpStatus.BAD_REQUEST);
 		}
 		else{

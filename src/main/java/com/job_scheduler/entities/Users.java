@@ -1,11 +1,7 @@
 package com.job_scheduler.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.job_scheduler.models.UserRoles;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +15,7 @@ public class Users{
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private long user_id;
+	private long userId;
 	
 	@Column(name = "name")
 	private String name;
@@ -32,12 +28,17 @@ public class Users{
 	
 	@Column(name = "password", nullable = false, updatable = true)
 	private String password;
+
+	@Column(name = "user_role", nullable = false, updatable = true)
+	@Enumerated(EnumType.STRING)
+	private UserRoles userRole;
 	
-	public Users(String name, String email, String mobileNo, String password){
+	public Users(String name, String email, String mobileNo, String password, UserRoles userRole){
 		this.name = name;
 		this.email = email;
 		this.mobileNo = mobileNo;
 		this.password = password;
+		this.userRole = userRole;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package com.job_scheduler.dtos;
+package com.job_scheduler.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class SignupResponseDto{
-	private String jwtToken;
+@NoArgsConstructor
+public class JwtPayload {
+    private int userId;
+    private UserRoles userRoles;
 }
